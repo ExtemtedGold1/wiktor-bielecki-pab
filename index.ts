@@ -22,7 +22,7 @@ app.get('/calcuator', function (req, res) {
         console.log(result3);
         break
       case 'podziel':
-        const result4 = num1 / num2;;
+        const result4 = num1 / num2;
         console.log(result4);
         break
       default:
