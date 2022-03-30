@@ -1,8 +1,42 @@
-import express from 'express'
+import express, { response } from 'express'
 import {Request, Response} from 'express'
 
 const app = express()
 const port = 3000;
+
+/*const url = 'http://localhost/login';
+
+const username = 'username';
+const password = 'password';
+
+function login(){
+    return fetch(url, {
+        method: 'post',
+        headers: {
+            'Content-type' : 'application/json',
+        },
+        body: JSON.stringify({
+            username: username,
+            password: password,
+        })
+    })
+    .then((response) => {
+        if(!response.ok){
+            throw response;
+        }
+        return response.json();
+    })
+}
+
+((button) => {
+    button.addEventListener('click', (event)=>{
+        login()
+        .then((response) =>{
+            console.log(result.token);
+        })
+    });
+})(document.querySelector('#submit'));*/
+
 
 const notes = [
     {id: 1, name:'Notatka 1', desc: 'Notatka numer 1'},
@@ -67,5 +101,21 @@ app.get('/', function (req: Request, res: Response) {
     console.log(req.body) // e.x. req.body.title 
     res.status(200).send('POST Hello World')
   })
+
+/*
+const authData = req.headers.authorization
+const token = authData?.split('') [1] ?? ' '
+const payload = jwt.verify(token, secret)*/
+
+
+
+
+
+
+
+
+
+
+
 
 app.listen(3000)
