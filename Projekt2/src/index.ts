@@ -107,15 +107,4 @@ const authData = req.headers.authorization
 const token = authData?.split('') [1] ?? ' '
 const payload = jwt.verify(token, secret)*/
 
-
-
-
-
-
-
-
-
-
-
-
 app.listen(3000)
