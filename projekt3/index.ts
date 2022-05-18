@@ -1,9 +1,33 @@
 import { request } from "http";
 import express, { response } from 'express'
 import {Request, Response} from 'express'
+import mongoose from 'mongoose'
 
+const MongoClient = require ('mongodb').MongoClient
+
+const bodyParser = require ('body-parser')
 const app = express()
 const port = 3000;
+app.use(express.json());
+
+MongoClient.connect('mongodb-connection-string', (err, client)=>
+{
+  
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 app.get('/', function (req: Request, res: Response) {
