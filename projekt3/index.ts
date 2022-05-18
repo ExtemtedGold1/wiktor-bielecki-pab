@@ -7,15 +7,26 @@ const MongoClient = require ('mongodb').MongoClient
 
 const bodyParser = require ('body-parser')
 const app = express()
-const port = 3000;
+//const port = 3000;
 app.use(express.json());
 
-MongoClient.connect('mongodb-connection-string', (err, client)=>
-{
-  
+const url= "mongodb://localhost:27017";
+
+mongoose.connect(url, {useNewUrlParser: true});
+const con= mongoose.connection;
+app.use(express.json());
+try{
+  con.on('open', () =>{
+    console.log('connection');
+  })
+}catch(error){
+  console.log("Error: "+error);
+}
+
+const port=9000;
+app.listen(port. () => {
+  console.log('Server started');
 })
-
-
 
 
 
