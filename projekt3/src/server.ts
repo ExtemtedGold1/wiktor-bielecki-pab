@@ -1,7 +1,6 @@
 import express, {response} from 'express';
 import {Request, Response} from 'express';
 import mongose from 'mongoose';
-//import { add_pracownika } from '../services/render';
 require('dotenv').config();
 
 
@@ -12,39 +11,6 @@ const morgan = require('morgan');
 const app = express();
 //Routes
 //app.use('/', require('../routes/router'))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //log request
 app.use(morgan('tiny'));

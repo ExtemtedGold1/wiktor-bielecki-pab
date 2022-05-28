@@ -1,25 +1,26 @@
-import mongoose from 'mongoose';
-const zamowieniaSchema = new mongoose.Schema({
-    start:{
-        type: Date,
-        required: true,
-        default:Date.now()
-    },
-    end:{
-        type: Date,
-        required: true,
-        default:Date.now()
-    },
-    client:{
-        type:{
-            name:{type:String,min:3},
-            surname:{type:String,min:3}
-        }
-    },
-    table:{
-        type: mongoose.Schema.Types.ObjectId, ref:'Table',
-        require:true
-    },
-});
+import { danie } from "./daniaModel";
+import { pracownik } from "./pracownikModel";
+import { Stolik } from "./stolikModel";
 
-module.exports = mongoose.model('Booking',zamowieniaSchema);
+enum statusZamownienia { zamowiony = 'zamowiony',
+ w_trakcie='w_trakcie', zrealizowany='zrealizowany', rachunek='rachunek' }
+
+ export class zamowienia
+ {
+    id:number;
+    pracownik:pracownik;
+    danie:danie;
+    status:statusZamownienia;
+    stolik:Stolik;
+    cena:number;
+
+    constructor(t : zamowienia)
+    {
+        this.id = t.id ?? Date.now();
+        this.pracownik = t.pracownik;
+        this.danie = t.danie;
+        this.status = t.status;
+        this.stolik = t.stolik;
+        this.cena = t.cena;
+    }
+ }

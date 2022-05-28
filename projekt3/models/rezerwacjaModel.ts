@@ -1,23 +1,17 @@
-import mongoose from 'mongoose';
-const rezerwacjaSchema = new mongoose.Schema({
-    start:{
-        type: Date,
-        required: true,
-        default:Date.now()
-    },
-    end:{
-        type: Date,
-        required: true,
-        default:Date.now()
-    },
-    client:{
-        type:{
-            name:{type:String,min:3},
-            surname:{type:String,min:3}
-        }
-    },
-    table:{
-        type: mongoose.Schema.Types.ObjectId, ref:'Table',
-        require:true
-    },
-})
+import {Stolik} from './stolikModel'
+export class rezerwacaja{
+    id:number;
+    table: Stolik;
+    start: Date;
+    end:Date;
+    client: string;
+
+    constructor(t : rezerwacaja)
+    {
+        this.id = t.id ?? Date.now();
+        this.table = t.table;
+        this.start = t.start;
+        this.end = t.end;
+        this.client = t.client;
+    }
+}
