@@ -1,14 +1,19 @@
-export class danie{
-    id:number;
-    nazwa: string;
-    cena: number;
-    kategoria: string;
+import mongoose from "mongoose";
 
-    constructor(t : danie)
-    {
-        this.id = t.id ?? Date.now();
-        this.nazwa = t.nazwa;
-        this.cena = t.cena;
-        this.kategoria = t.kategoria;
-    }
-}
+const danie = new mongoose.Schema({
+    nazwa: {
+        type: String,
+        required: true,
+    },
+    cena: {
+        type:Number,
+        require:true,
+    },
+    kategoria: {
+        type:String,
+        required:true,
+    },
+})
+
+const danieModels = mongoose.model('danie',danie)
+export default danieModels;

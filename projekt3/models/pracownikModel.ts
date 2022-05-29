@@ -1,15 +1,19 @@
-export class pracownik
-{
-    id:number;
-    imie:string;
-    nazwisko:string;
-    occupation:string;
+import mongoose from "mongoose";
 
-    constructor(t : pracownik)
-    {
-        this.id = t.id ?? Date.now();
-        this.imie = t.imie;
-        this.nazwisko = t.nazwisko;
-        this.occupation = t.occupation;
+const pracownik = new mongoose.Schema({
+    imie:{
+        type:String,
+        required:true,
+    },
+    nazwisko:{
+        type:String,
+        required:true,
+    },
+    stanowisko:{
+        type:String,
+        required:true
     }
-}
+})
+
+const pracownikModel = mongoose.model('pracownik',pracownik)
+export default pracownikModel;

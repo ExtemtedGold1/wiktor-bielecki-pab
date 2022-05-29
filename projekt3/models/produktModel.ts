@@ -1,18 +1,22 @@
-export enum jednostkaMiary { gram = 'g', delagram = 'dg', kilogram = 'kg', tona = 't'}
-
-export class produkt{
-    id:number;
-    nazwa: string;
-    cena: number;
-    ilosc: number;
-    jednostkaMiary: number;
-
-    constructor(t : produkt)
-    {
-        this.id = t.id ?? Date.now();
-        this.nazwa  = t.nazwa;
-        this.cena = t.cena;
-        this.ilosc = t.ilosc;
-        this.jednostkaMiary = t.jednostkaMiary;
+import mongoose from "mongoose";
+const produkt = new mongoose.Schema({
+    nazwa:{
+        type:String,
+        required:true,
+    },
+    cena:{
+        type:Number,
+        required:true,
+    },
+    ilosc:{
+        type:Number,
+        required:true
+    },
+    jednostkaMiary:{
+        type:String,
+        enum:['g','dg','kg','t'],
+        default:'g',
+        required:true
     }
-}
+    
+})
