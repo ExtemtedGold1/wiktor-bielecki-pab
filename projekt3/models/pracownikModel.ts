@@ -11,9 +11,9 @@ const pracownik = new mongoose.Schema({
     },
     stanowisko:{
         type:String,
-        required:true
-    }
+        required:true,
+    },
 })
 
-const pracownikModel = mongoose.model('pracownik',pracownik)
-export default pracownikModel;
+const pracownikModels = mongoose.model('pracownik',pracownik)
+export default pracownikModels;

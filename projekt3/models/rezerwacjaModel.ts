@@ -1,17 +1,23 @@
-import {Stolik} from './stolikModel'
-export class rezerwacaja{
-    id:number;
-    table: Stolik;
-    start: Date;
-    end:Date;
-    client: string;
+import mongoose from "mongoose";
+//import {Stolik} from './stolikModel';
+const rezerwacaja = new mongoose.Schema({
+    stolik: {
+        type: String,
+        required: true,
+    },
+    start: {
+        type:Number,
+        require:true,
+    },
+    end: {
+        type:Number,
+        required:true,
+    },
+    client: {
+        type:String,
+        required:true,
+    },
+})
 
-    constructor(t : rezerwacaja)
-    {
-        this.id = t.id ?? Date.now();
-        this.table = t.table;
-        this.start = t.start;
-        this.end = t.end;
-        this.client = t.client;
-    }
-}
+const rezerwacajaModels = mongoose.model('rezerwacaja',rezerwacaja)
+export default rezerwacajaModels;

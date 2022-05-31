@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const danie = new mongoose.Schema({
     nazwa: {
-        type: String,
+        type:String,
         required: true,
     },
     cena: {

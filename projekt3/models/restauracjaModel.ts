@@ -1,20 +1,30 @@
-export class restauracja{
-    id: number;
-    nazwa: string;
-    adres: string;
-    telefon: number;
-    nip: number;
-    email: string;
-    www: string;
+import mongoose  from "mongoose";
 
-    constructor(t : restauracja)
-    {
-        this.id = t.id ?? Date.now();
-        this.nazwa = t.nazwa;
-        this.adres = t.adres;
-        this.telefon = t.telefon;
-        this.nip = t.nip;
-        this.email = t.email;
-        this.www = t.www;
+const restauracja = new mongoose.Schema({
+    nazwa:{
+        type:String,
+        required:true,
+    },
+    adres:{
+        type:String,
+        required:true,
+    },
+    telefon: {
+        type:Number,
+        required:true,
+    },
+    nip:{
+        type:Number,
+        required:true,
+    },
+    email:{
+        type:String,
+        required:false,
+    },
+    www:{
+        type:String,
+        required:true,
     }
-}
+})
+const restauracjaModels = mongoose.model('restauracja',restauracja)
+export default restauracjaModels;

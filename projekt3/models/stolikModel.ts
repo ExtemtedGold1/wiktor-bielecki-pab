@@ -1,17 +1,20 @@
-export enum statusStolika { wolny = 'wolny', zajety = 'zajety', nie_dostepny = 'nie_dostepny'}
+import mongoose from "mongoose";
 
-export class Stolik
-{
-    id:number;
-    nazwa:string;
-    liczbaMiejsc: number;
-    status: statusStolika;
-
-    constructor(t : Stolik)
-    {
-        this.id = t.id ?? Date.now();
-        this.nazwa = t.nazwa;
-        this.liczbaMiejsc = t.liczbaMiejsc;
-        this.status = t.status;
-    }
-}
+const stolik = new mongoose.Schema({
+    nazwa: {
+        type: String,
+        required: true,
+    },
+    liczbaMiejsc: {
+        type:Number,
+        require:true,
+    },
+    status: {
+        type:String,
+        enum:['wolny', 'zajety','nie_dostepny'],
+        default:'wolny',
+        required:true,
+    },
+})
+const stolikModels = mongoose.model('stolik',stolik)
+export default stolikModels;
