@@ -16,6 +16,7 @@ router.post('/',async (req:Request, res:Response) =>{
     })
     const saveRezerwacaja= await rezerwacaja.save();
     res.status(201).json(rezerwacaja);
+    console.log(saveRezerwacaja);
 })
 
 router.get('/',async (req:Request, res:Response) => {

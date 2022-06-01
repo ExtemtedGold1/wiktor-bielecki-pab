@@ -26,7 +26,7 @@ const stolik = require('./routes/stolikRouter');
 app.use('/stoliki', stolik);
 
 const zamowienie = require('./routes/zamowienieRouter');
-app.use('/zamówienia', zamowienie);
+app.use('/zamowienia', zamowienie);
 
 
 app.listen(3000)

@@ -17,7 +17,7 @@ router.post('/',async (req:Request, res:Response) =>{
     res.status(201).json(danie);
 })
 
-router.get('/:id',async (req:Request, res:Response) => {
+router.get('/',async (req:Request, res:Response) => {
     const danie = await danieModels.find();
     res.status(201).send(danie);
 })

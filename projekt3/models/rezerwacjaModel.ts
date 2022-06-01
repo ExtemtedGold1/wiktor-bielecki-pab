@@ -8,10 +8,12 @@ const rezerwacaja = new mongoose.Schema({
     start: {
         type:Number,
         require:true,
+        default:Date.now()
     },
     end: {
         type:Number,
         required:true,
+        default:Date.now()
     },
     client: {
         type:String,
